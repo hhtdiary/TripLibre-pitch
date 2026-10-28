@@ -1,0 +1,189 @@
+/* ------------------------------------------------------------------
+   Five themes over the same scenes. Each theme only re-points tokens
+   (colour, type, radius, tilt) plus a few texture rules; layouts stay
+   identical. "notebook" is the original look and uses the :root values.
+------------------------------------------------------------------- */
+
+/* A · App UI — TripLibre's sticker look: butter paper, chunky outlines */
+:root[data-theme='app'] {
+  --paper: #fff6da;
+  --paper-2: #f6eac4;
+  --paper-3: #e8dcb4;
+  --ink: #1b1b1b;
+  --ink-2: #3d382d;
+  --ink-3: #5f5848;
+  --rule: #d9cca6;
+  --accent: #e8553a;
+  --accent-ink: #b5381d;
+  --accent-wash: #fbd9c9;
+  --card: #ffffff;
+  --night: #24314f;
+  --night-2: #33426a;
+  --night-rule: #46557d;
+  --on-night: #fff6da;
+  --on-night-2: #dbe3f5;
+  --on-night-3: #aab6d6;
+  --alt: #3e6fd1;
+  --on-accent: #ffffff;
+  --serif: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --sans: 'Nunito', system-ui, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --display-weight: 800;
+  --display-tracking: -0.01em;
+  --em-style: normal;
+  --radius: 16px;
+  --tilt: 1;
+}
+
+/* B · Tech — dark console, telemetry grid, lime signal */
+:root[data-theme='tech'] {
+  --paper: #0a0d11;
+  --paper-2: #0f141a;
+  --paper-3: #1a222b;
+  --ink: #e8edf2;
+  --ink-2: #a9b4bf;
+  --ink-3: #8592a0;
+  --rule: #26303a;
+  --accent: #c6ff3d;
+  --accent-ink: #c6ff3d;
+  --accent-wash: #1f2a12;
+  --card: #10161c;
+  --night: #030508;
+  --night-2: #121820;
+  --night-rule: #26303a;
+  --on-night: #e8edf2;
+  --on-night-2: #b9c3cc;
+  --on-night-3: #8592a0;
+  --alt: #3de0ff;
+  --on-accent: #0a0d11;
+  --serif: 'Space Grotesk', system-ui, sans-serif;
+  --sans: 'Space Grotesk', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --display-weight: 700;
+  --display-tracking: -0.03em;
+  --em-style: normal;
+  --radius: 0px;
+  --tilt: 0;
+}
+
+/* C · Academic — journal page: serif, rules, crimson */
+:root[data-theme='academic'] {
+  --paper: #fdfcf9;
+  --paper-2: #f3f0e8;
+  --paper-3: #e4dfd3;
+  --ink: #1c1c1c;
+  --ink-2: #444444;
+  --ink-3: #626262;
+  --rule: #c9c4b8;
+  --accent: #8c2f39;
+  --accent-ink: #8c2f39;
+  --accent-wash: #f2e1e1;
+  --card: #ffffff;
+  --night: #1f2a3a;
+  --night-2: #2c3a50;
+  --night-rule: #3d4c63;
+  --on-night: #f3f1ea;
+  --on-night-2: #cfd6e0;
+  --on-night-3: #9aa6b6;
+  --alt: #1f3a5f;
+  --on-accent: #ffffff;
+  --serif: 'Source Serif 4', Georgia, serif;
+  --sans: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --mono: 'IBM Plex Mono', ui-monospace, Menlo, monospace;
+  --display-weight: 600;
+  --display-tracking: -0.005em;
+  --em-style: italic;
+  --radius: 0px;
+  --tilt: 0;
+}
+
+/* D · Minimal fresh — air, sage, one quiet sans */
+:root[data-theme='minimal'] {
+  --paper: #f5f8f6;
+  --paper-2: #ebf1ee;
+  --paper-3: #dce5e0;
+  --ink: #18231f;
+  --ink-2: #4a5a53;
+  --ink-3: #5f6f68;
+  --rule: #d3ddd8;
+  --accent: #2f7d6b;
+  --accent-ink: #276b5b;
+  --accent-wash: #e3efe9;
+  --card: #ffffff;
+  --night: #1f3b33;
+  --night-2: #2b4c43;
+  --night-rule: #3b5d53;
+  --on-night: #eef5f1;
+  --on-night-2: #c7d9d0;
+  --on-night-3: #93ada2;
+  --alt: #3f73c9;
+  --on-accent: #ffffff;
+  --serif: 'Manrope', system-ui, sans-serif;
+  --sans: 'Manrope', system-ui, sans-serif;
+  --mono: 'JetBrains Mono', ui-monospace, Menlo, monospace;
+  --display-weight: 800;
+  --display-tracking: -0.03em;
+  --em-style: normal;
+  --radius: 16px;
+  --tilt: 0;
+}
+
+/* ------------------------------------------------------------ shared */
+:is(.paper-card, .chip-btn, .s10-role, .s10-ticket, .s10-ai, .s10-dec, .s10-proof, .s11-lane li, .s11-node,
+  .s13-code, .s13-bubble, .s13-tab, .s14-card, .s14-black, .s14-quick span, .s15-map, .s16-item, .s18-diff,
+  .s19-panel, .s20-board, .s21-col li, .s06-seat, .s05-track, .s17-thumbs button, .overview li button) {
+  border-radius: var(--radius);
+}
+.s20-tasks button { border-radius: calc(var(--radius) / 2); }
+
+/* ------------------------------------------------------------- A · app */
+[data-theme='app'] .stage { background-image: radial-gradient(var(--paper-3) 1.4px, transparent 1.6px); background-size: calc(var(--u) * 1.6) calc(var(--u) * 1.6); }
+[data-theme='app'] .stage.wash { background-color: var(--paper-2); }
+[data-theme='app'] .stage { font-weight: 600; }
+[data-theme='app'] .paper-card { border: 3px solid var(--ink); box-shadow: calc(var(--u) * 0.35) calc(var(--u) * 0.35) 0 var(--ink); }
+[data-theme='app'] .chip-btn { border-width: 2.5px; border-radius: 999px; font-weight: 600; }
+[data-theme='app'] .s10-role, [data-theme='app'] .s06-seat.me, [data-theme='app'] .s11-node { border-width: 2.5px; }
+[data-theme='app'] .s02-wave:nth-child(1) { background: #ffd34d; }
+[data-theme='app'] .s02-wave:nth-child(2) { background: #7fd9a8; }
+[data-theme='app'] .s02-wave:nth-child(3) { background: #9fc0f7; }
+[data-theme='app'] .s06-seat.me { background: #6f9cf2; color: var(--ink); border: 3px solid var(--ink); box-shadow: 4px 4px 0 var(--ink); }
+[data-theme='app'] .s10-role { background: #ffd34d; border-radius: 12px; }
+[data-theme='app'] .s11-lane.lane-2 li { background: #ffd34d; border: 2px solid var(--ink); }
+[data-theme='app'] .s21-col.c0 li { background: #7fd9a8; color: var(--ink); border: 2.5px solid var(--ink); }
+[data-theme='app'] .s07-overlap { border-width: 3px; border-color: var(--ink); background: #f49ac1; }
+[data-theme='app'] .s16-item.term, [data-theme='app'] .s13-code, [data-theme='app'] .s20-board { border: 3px solid var(--ink); box-shadow: 5px 5px 0 var(--ink); }
+[data-theme='app'] .s17-screen { border-color: var(--ink); }
+[data-theme='app'] .tag { border-width: 2px; font-weight: 500; }
+
+/* ------------------------------------------------------------ B · tech */
+[data-theme='tech'] .stage { background-image: linear-gradient(var(--paper-3) 1px, transparent 1px), linear-gradient(90deg, var(--paper-3) 1px, transparent 1px); background-size: calc(var(--u) * 3) calc(var(--u) * 3); }
+[data-theme='tech'] .paper-card { border: 1px solid var(--rule); box-shadow: none; }
+[data-theme='tech'] .deck, [data-theme='tech'] body { background: #05070a; }
+[data-theme='tech'] .s04-quiet { background: #000000; }
+[data-theme='tech'] .s17-screen { border-color: #26303a; }
+[data-theme='tech'] .label { letter-spacing: 0.12em; }
+
+/* -------------------------------------------------------- C · academic */
+[data-theme='academic'] .paper-card { border: 1px solid var(--rule); box-shadow: none; }
+[data-theme='academic'] .label { font-family: var(--sans); font-weight: 600; letter-spacing: 0.1em; }
+[data-theme='academic'] .runhead { font-family: var(--sans); text-transform: none; letter-spacing: 0; border-bottom: 1px solid var(--ink); padding-bottom: 0.4em; }
+[data-theme='academic'] .s04-quiet .mega { font-weight: 400; letter-spacing: 0.08em; }
+
+/* --------------------------------------------------------- D · minimal */
+[data-theme='minimal'] .paper-card { border: 0; box-shadow: 0 1px 2px rgb(24 35 31 / 0.06); }
+[data-theme='minimal'] .label { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-weight: 700; }
+[data-theme='minimal'] .runhead { text-transform: none; letter-spacing: 0; font-family: var(--sans); font-weight: 600; }
+[data-theme='minimal'] .chip-btn { border-radius: 999px; font-family: var(--sans); font-weight: 600; }
+[data-theme='minimal'] .s04-quiet .mega { letter-spacing: -0.03em; }
+
+/* --------------------------------------------------------- the picker */
+.theme-picker { display: inline-flex; gap: 0; font-family: var(--mono); font-size: 12px; }
+.theme-picker button { border: 1px solid var(--rule); background: var(--paper); color: var(--ink-2); padding: 4px 9px; margin-left: -1px; cursor: pointer; font: inherit; }
+.theme-picker button[aria-pressed='true'] { background: var(--ink); color: var(--paper); border-color: var(--ink); position: relative; }
+.theme-picker.on-stage { position: absolute; right: calc(var(--u) * 4); top: calc(var(--u) * 4); z-index: 5; font-size: var(--t-xs); }
+.theme-picker.on-stage button { padding: 0.5em 0.9em; }
+.theme-picker.on-stage .tp-label { align-self: center; margin-right: 0.8em; color: var(--ink-3); text-transform: uppercase; letter-spacing: 0.08em; }
+@media (max-width: 760px) {
+  .theme-picker.on-stage { position: relative; right: auto; top: auto; flex-wrap: wrap; margin-bottom: 20px; }
+}
+@media print { .theme-picker { display: none !important; } }

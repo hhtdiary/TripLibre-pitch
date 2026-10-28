@@ -3,6 +3,7 @@ import { flushSync } from 'react-dom'
 import { SCENES } from './data/scenes'
 import { NOTES } from './data/notes'
 import type { Mode } from './types'
+import { ThemePicker, ThemeProvider, useTheme } from './theme'
 
 const CHANNEL = 'triplibre-deck'
 type Msg = { type: 'state'; index: number; step: number } | { type: 'nav'; dir: 1 | -1 } | { type: 'goto'; index: number } | { type: 'hello' }
@@ -29,7 +30,11 @@ function NoteText({ text }: { text: string }) {
 
 export default function App() {
   if (new URLSearchParams(location.search).has('presenter')) return <Presenter />
-  return <Deck />
+  return (
+    <ThemeProvider>
+      <Deck />
+    </ThemeProvider>
+  )
 }
 
 function Deck() {
@@ -39,6 +44,7 @@ function Deck() {
   const [mode, setMode] = useState<Mode>(() => (isNarrow() || new URLSearchParams(location.search).has('explore') ? 'explore' : 'talk'))
   const [overview, setOverview] = useState(false)
   const [notes, setNotes] = useState(false)
+  const { cycle: cycleTheme } = useTheme()
   const channel = useRef<BroadcastChannel | null>(null)
   const scene = SCENES[index]
 
@@ -104,7 +110,7 @@ function Deck() {
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
       if (e.metaKey || e.ctrlKey || e.altKey) return
-      const t = e.target as HTMLElement
+      const t = e.target instanceof Element ? e.target : document.body
       if (t.closest('input, textarea, select, [role="slider"], [data-keys="own"]') && !['Escape'].includes(e.key)) {
         if (!(t.closest('[data-keys="own"]') && (e.key === 'PageDown' || e.key === 'PageUp'))) return
       }
@@ -145,6 +151,9 @@ function Deck() {
         case 'p':
           openPresenter()
           break
+        case 't':
+          cycleTheme()
+          break
         case 'f':
           if (document.fullscreenElement) document.exitFullscreen()
           else document.documentElement.requestFullscreen?.()
@@ -153,7 +162,7 @@ function Deck() {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [next, prev, go, index, mode, overview])
+  }, [next, prev, go, index, mode, overview, cycleTheme])
 
   const scrollToScene = (i: number) => {
     const c = Math.min(Math.max(i, 0), SCENES.length - 1)
@@ -210,6 +219,7 @@ function Deck() {
           <span className="ttl">A Travel Diary That Doesn’t End</span>
           <span style={{ flex: 1 }} />
           <span aria-live="polite">{String(index + 1).padStart(2, '0')} / {SCENES.length}</span>
+          {!isNarrow() && <ThemePicker />}
           <button type="button" onClick={() => setOverview(true)}>Index</button>
           {!isNarrow() && <button type="button" onClick={() => setMode('talk')}>Talk mode</button>}
         </nav>
@@ -250,6 +260,7 @@ function Deck() {
             </span>
             <span>{scene.title}</span>
             <span className="spacer" />
+            <ThemePicker />
             <button type="button" onClick={() => setOverview(true)}>index (o)</button>
             <button type="button" aria-pressed={notes} onClick={() => setNotes((v) => !v)}>notes (n)</button>
             <button type="button" onClick={openPresenter}>presenter (p)</button>
@@ -308,7 +319,7 @@ function Overview({ current, onPick, onClose }: { current: number; onPick: (i: n
         </div>
       ))}
       <p style={{ marginTop: 28, fontFamily: 'var(--mono)', fontSize: 12, color: 'var(--ink-3)' }}>
-        Keys: → / Space next · ← back · o index · n notes · p presenter window · e explore mode · f fullscreen
+        Keys: → / Space next · ← back · o index · n notes · p presenter window · e explore mode · t theme · f fullscreen
       </p>
     </div>
   )

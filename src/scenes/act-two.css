@@ -11,11 +11,11 @@
 .s07-book { position: absolute; top: calc(var(--u) * 2); width: calc(var(--u) * 40); padding: calc(var(--u) * 2) calc(var(--u) * 2.4); min-height: calc(var(--u) * 30); }
 .s07-book ul { margin: calc(var(--u) * 1) 0 0; padding: 0; list-style: none; display: grid; gap: 0.45em; font-size: var(--t-lg); }
 .s07-book li { border-bottom: 1px solid var(--rule); padding-bottom: 0.25em; }
-.s07-book.research { left: 0; transform: rotate(-2.2deg); background-image: linear-gradient(90deg, transparent calc(var(--u) * 1.3), var(--accent-wash) calc(var(--u) * 1.3), var(--accent-wash) calc(var(--u) * 1.4), transparent 0); }
-.s07-book.product { right: 0; top: calc(var(--u) * 4); transform: rotate(1.6deg); }
+.s07-book.research { left: 0; transform: rotate(calc(-2.2deg * var(--tilt, 1))); background-image: linear-gradient(90deg, transparent calc(var(--u) * 1.3), var(--accent-wash) calc(var(--u) * 1.3), var(--accent-wash) calc(var(--u) * 1.4), transparent 0); }
+.s07-book.product { right: 0; top: calc(var(--u) * 4); transform: rotate(calc(1.6deg * var(--tilt, 1))); }
 .s07-book.product ul { padding-left: calc(var(--u) * 12); }
 .s07-book.product .label { padding-left: calc(var(--u) * 12); }
-.s07-overlap { position: absolute; left: 50%; top: calc(var(--u) * 8); transform: translateX(-50%) rotate(-4deg); z-index: 3; text-align: center; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; width: calc(var(--u) * 18); height: calc(var(--u) * 18); display: grid; place-content: center; gap: 0.1em; box-shadow: 0 6px 18px rgb(0 0 0 / 0.08); }
+.s07-overlap { position: absolute; left: 50%; top: calc(var(--u) * 8); transform: translateX(-50%) rotate(calc(-4deg * var(--tilt, 1))); z-index: 3; text-align: center; background: var(--paper); border: 2px solid var(--accent); border-radius: 50%; width: calc(var(--u) * 18); height: calc(var(--u) * 18); display: grid; place-content: center; gap: 0.1em; box-shadow: 0 6px 18px rgb(0 0 0 / 0.08); }
 .s07-overlap .note-hand { font-size: var(--t-xl); line-height: 1; }
 
 /* 08 */
