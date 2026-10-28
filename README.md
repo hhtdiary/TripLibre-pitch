@@ -40,17 +40,19 @@ Five looks over the same scenes, for different audiences and rooms:
 
 | | Theme | `?theme=` |
 |---|---|---|
-| A | App UI — TripLibre’s sticker style (default) | `app` |
+| A | App UI — TripLibre’s Toon design system: ink outlines, hard shadows, bright fills (default) | `app` |
 | B | Tech — dark console, lime signal | `tech` |
 | C | Academic — journal page, serif, crimson | `academic` |
 | D | Minimal — airy, sage, one sans | `minimal` |
 | E | Notebook — the original field-notebook look | `notebook` |
 
-Pick one with the buttons on the cover, the control bar, or `t`. The browser remembers the choice;
+Pick one with the buttons on the title cover (scene 00), the control bar, or `t`. Theme A follows the palette and rules in the
+[TripLibre UI guide](https://hhtdiary.org/triplibre/docs/ui-guide.html#design-system) and uses SF Rounded on Apple devices
+(Nunito elsewhere), like the app. The browser remembers the choice;
 a `?theme=` link (e.g. `/?theme=academic#/scene-01`) always wins, so you can send the right look to the right audience.
 Themes only change tokens and texture in [`src/themes.css`](src/themes.css); layouts are shared.
 
-- Deep links: `#/scene-10` opens a scene; `#/scene-10/2` opens it at build step 2.
+- Deep links: `#/scene-10` opens a scene; `#/scene-10/2` opens it at build step 2. `#/scene-00` is the title cover.
 - `?explore` opens explore mode (all scenes stacked, every build revealed). Phones get explore mode automatically.
 - Most clickers send PageDown/PageUp, which works even while an interactive element has focus.
 - Interactive scenes: 08 decision log, 10 draggable divider (also ← → when focused), 11 tool nodes, 12 switchboard,

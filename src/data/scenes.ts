@@ -1,4 +1,5 @@
 import type { SceneDef } from '../types'
+import { S00 } from '../scenes/Cover'
 import { S01, S02, S03, S04, S05 } from '../scenes/ActOne'
 import { S06, S07, S08, S09 } from '../scenes/ActTwo'
 import { S10 } from '../scenes/S10'
@@ -15,6 +16,7 @@ const V = 'V · The bill, and when to stop'
 // Order, titles and build-step counts. Content lives in the components;
 // speaker notes in notes.ts; sources in evidence.ts.
 export const SCENES: SceneDef[] = [
+  { n: 0, slug: 'cover', title: 'A travel diary that doesn’t end', act: 'Cover', steps: 0, Component: S00 },
   { n: 1, slug: 'diary', title: 'A diary of one day', act: I, steps: 2, Component: S01 },
   { n: 2, slug: 'hhts-user', title: 'I became a user of HHTS data', act: I, steps: 2, Component: S02 },
   { n: 3, slug: 'other-side', title: 'Then I saw the survey from the other side', act: I, steps: 2, Component: S03 },

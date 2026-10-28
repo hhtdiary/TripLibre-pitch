@@ -11,15 +11,19 @@ type Msg = { type: 'state'; index: number; step: number } | { type: 'nav'; dir: 
 function parseHash(): { index: number; step: number } {
   const m = location.hash.match(/scene-(\d+)(?:\/(\d+))?/)
   if (!m) return { index: 0, step: 0 }
-  const index = Math.min(Math.max(parseInt(m[1], 10) - 1, 0), SCENES.length - 1)
+  const found = SCENES.findIndex((s) => s.n === parseInt(m[1], 10))
+  const index = found < 0 ? 0 : found
   const step = Math.min(parseInt(m[2] ?? '0', 10), SCENES[index].steps)
   return { index, step }
 }
 
 const isNarrow = () => window.matchMedia('(max-width: 760px)').matches
 
+const LAST = SCENES[SCENES.length - 1].n
+const num = (index: number) => String(SCENES[index].n).padStart(2, '0')
+
 function sceneHash(index: number) {
-  return `#/scene-${String(index + 1).padStart(2, '0')}`
+  return `#/scene-${num(index)}`
 }
 
 /** Notes printed with {cues} picked out. */
@@ -68,7 +72,7 @@ function Deck() {
   useEffect(() => {
     const want = sceneHash(index)
     if (!location.hash.startsWith(want)) history.replaceState(null, '', want)
-    document.title = `${String(index + 1).padStart(2, '0')} · ${scene.title} — A Travel Diary That Doesn't End`
+    document.title = `${num(index)} · ${scene.title} — A Travel Diary That Doesn't End`
   }, [index, scene.title])
 
   useEffect(() => {
@@ -218,7 +222,7 @@ function Deck() {
         <nav className="explore-bar" aria-label="Presentation">
           <span className="ttl">A Travel Diary That Doesn’t End</span>
           <span style={{ flex: 1 }} />
-          <span aria-live="polite">{String(index + 1).padStart(2, '0')} / {SCENES.length}</span>
+          <span aria-live="polite">{num(index)} / {LAST}</span>
           {!isNarrow() && <ThemePicker />}
           <button type="button" onClick={() => setOverview(true)}>Index</button>
           {!isNarrow() && <button type="button" onClick={() => setMode('talk')}>Talk mode</button>}
@@ -232,7 +236,7 @@ function Deck() {
             id={`s-${index + 1}`}
             className={`stage ${scene.tone ?? 'paper'}`}
             aria-roledescription="slide"
-            aria-label={`${index + 1} of ${SCENES.length}: ${scene.title}`}
+            aria-label={`${scene.n} of ${LAST}: ${scene.title}`}
           >
             <scene.Component step={step} active mode="talk" />
           </section>
@@ -243,7 +247,7 @@ function Deck() {
               id={`s-${i + 1}`}
               className={`stage ${s.tone ?? 'paper'}`}
               aria-roledescription="slide"
-              aria-label={`${i + 1} of ${SCENES.length}: ${s.title}`}
+              aria-label={`${s.n} of ${LAST}: ${s.title}`}
             >
               <s.Component step={s.steps} active={i === index} mode="explore" />
             </section>
@@ -255,7 +259,7 @@ function Deck() {
             <button type="button" onClick={prev} aria-label="Previous">←</button>
             <button type="button" onClick={next} aria-label="Next">→</button>
             <span className="count" aria-live="polite">
-              {String(index + 1).padStart(2, '0')} / {SCENES.length}
+              {num(index)} / {LAST}
               {scene.steps > 0 && ` · build ${step}/${scene.steps}`}
             </span>
             <span>{scene.title}</span>
@@ -271,7 +275,7 @@ function Deck() {
 
       {notes && (
         <aside className="notes-drawer" aria-label="Speaker notes">
-          <h3>Notes · {String(index + 1).padStart(2, '0')} {scene.title}</h3>
+          <h3>Notes · {num(index)} {scene.title}</h3>
           {(NOTES[scene.n] ?? []).map((t, i) => <NoteText key={i} text={t} />)}
         </aside>
       )}
@@ -361,7 +365,7 @@ function Presenter() {
         <div className="clock" aria-label="Elapsed time">
           {String(Math.floor(secs / 60)).padStart(2, '0')}:{String(secs % 60).padStart(2, '0')}
         </div>
-        <div className="meta" style={{ marginTop: 8 }}>Target 20–26 min · 22 scenes</div>
+        <div className="meta" style={{ marginTop: 8 }}>Target 20–26 min · {LAST} scenes + cover</div>
         <div className="controls">
           <button type="button" onClick={() => send({ type: 'nav', dir: -1 })}>← back</button>
           <button type="button" onClick={() => send({ type: 'nav', dir: 1 })}>next →</button>
@@ -379,7 +383,7 @@ function Presenter() {
       </div>
       <div>
         <div className="meta">
-          {String(s.n).padStart(2, '0')} / 22 · {s.act} {s.steps > 0 && `· build ${state.step}/${s.steps}`}
+          {String(s.n).padStart(2, '0')} / {LAST} · {s.act} {s.steps > 0 && `· build ${state.step}/${s.steps}`}
         </div>
         <h1>{s.title}</h1>
         <div className="notes">

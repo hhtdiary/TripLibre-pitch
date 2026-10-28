@@ -3,6 +3,10 @@
 // Cues in {braces} describe what to click.
 
 export const NOTES: Record<number, string[]> = {
+  0: [
+    'Title. Pick the theme for this room before you start: buttons top-right, or press t.',
+    'Then → to scene 01.',
+  ],
   1: [
     'Let me start before there was an app, and before there was any AI in this story.',
     'Long before TripLibre, I was reading other people’s days. A household travel survey turns a day into rows: a trip starts, a trip ends, here is the mode and here is the purpose. Coursework and survey data showed me that an ordinary Tuesday can become a research observation.',

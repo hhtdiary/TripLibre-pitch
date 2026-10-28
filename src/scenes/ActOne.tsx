@@ -2,7 +2,6 @@ import { Scene } from '../components/Scene'
 import { Tag } from '../components/Tag'
 import { rv } from '../components/reveal'
 import type { SceneProps } from '../types'
-import { ThemePicker } from '../theme'
 
 const ACT = 'Before the app'
 
@@ -10,7 +9,6 @@ const ACT = 'Before the app'
 export function S01({ step }: SceneProps) {
   return (
     <Scene n={1} act={ACT} aside="Zhanchao Yang · University of Pennsylvania">
-      <ThemePicker onStage />
       <svg className="s01-trace m-hide" viewBox="0 0 1000 560" aria-hidden="true" preserveAspectRatio="none">
         <path
           className={step >= 1 ? 'drawn' : ''}
