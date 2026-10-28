@@ -4,6 +4,7 @@
 .s01-trace path.drawn { stroke-dashoffset: 0; }
 .s01-trace circle { fill: var(--accent); }
 .s01-trace text { font-family: var(--mono); font-size: 13px; fill: var(--ink-3); }
+.s01-origin { position: absolute; left: calc(var(--u) * 6); top: calc(var(--u) * 5.4); display: flex; gap: 0.8em; align-items: center; }
 .s01-lines { position: absolute; left: calc(var(--u) * 6); top: calc(var(--u) * 11); display: grid; gap: calc(var(--u) * 0.6); }
 .s01-form { position: absolute; left: calc(var(--u) * 6); right: calc(var(--u) * 6); bottom: calc(var(--u) * 4); margin: 0; }
 .s01-form .row { display: grid; grid-template-columns: 0.5fr 1fr 1fr 2.4fr 1fr 1fr; border-bottom: 1px solid var(--rule); height: calc(var(--u) * 2.6); align-items: center; }
@@ -23,7 +24,8 @@
 .s02-chart svg { width: 100%; height: auto; overflow: visible; }
 .s02-chart text { font-family: var(--mono); font-size: 12px; fill: var(--ink-3); }
 .s02-chart .grid { stroke: var(--rule); stroke-width: 1; }
-.s02-chart .band { fill: var(--accent-wash); }
+.s02-chart .turn { stroke: var(--accent); stroke-width: 2; stroke-dasharray: 5 5; }
+.s02-fig { width: 100%; height: auto; display: block; background: var(--card); }
 .s02-chart .curve { fill: none; stroke: var(--ink); stroke-width: 3; stroke-linejoin: round; }
 .s02-chart .ann { fill: var(--accent-ink); font-family: var(--serif); font-style: var(--em-style); font-size: 18px; }
 .s02-punch { position: absolute; left: calc(var(--u) * 4); bottom: calc(var(--u) * 3.4); font-size: var(--t-xl); }
@@ -82,7 +84,7 @@
 .s05-why { position: absolute; left: calc(var(--u) * 4); right: calc(var(--u) * 4); bottom: calc(var(--u) * 3); display: grid; grid-template-columns: repeat(3, 1fr) 1.1fr; gap: calc(var(--u) * 2); border-top: 1.5px solid var(--ink); padding-top: calc(var(--u) * 1.2); }
 
 @media (max-width: 760px) {
-  .s01-lines, .s01-form, .s02-punch, .s03-foot, .s04-horizon, .s04-q, .s05-why { position: relative; inset: auto; left: auto; right: auto; top: auto; bottom: auto; margin-top: 24px; }
+  .s01-origin, .s01-lines, .s01-form, .s02-punch, .s03-foot, .s04-horizon, .s04-q, .s05-why { position: relative; inset: auto; left: auto; right: auto; top: auto; bottom: auto; margin-top: 24px; }
   .s01-form .row { height: 28px; grid-template-columns: 0.5fr 1fr 1fr 1.6fr 1fr 1fr; }
   .s02-waves { flex-wrap: wrap; }
   .s02-wave { width: auto; flex: 1; }

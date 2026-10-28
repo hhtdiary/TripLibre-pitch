@@ -4,6 +4,7 @@ import { Tag, type TagKind } from '../components/Tag'
 import { rv } from '../components/reveal'
 import type { SourceKey } from '../data/evidence'
 import type { SceneProps } from '../types'
+import { APP_STORE } from '../data/facts'
 
 const ACT = 'Orchestration'
 
@@ -21,10 +22,10 @@ interface Tool {
 const TOOLS: Tool[] = [
   { id: 'cc', name: 'Claude Code', kind: 'rec', x: 30, y: 36, tag: ['repo', 'claudePRs'], trace: ['issue spec + repo context', 'scoped change with tests', 'a pull request', 'read the diff; run it on simulator and phone', 'merged — or closed: PR #81 proposed deleting a chart to pass an audit; closed, chart fixed in #82'] },
   { id: 'cx', name: 'Codex review', kind: 'rec', x: 300, y: 18, tag: ['repo', 'codexCommits'], trace: ['the PR diff', 'adversarial code review', 'P2 findings', 'is it real? reproduce it; pin it with a test', '8 commits on main cite a Codex finding'] },
-  { id: 'gpt', name: 'ChatGPT', kind: 'rec', x: 370, y: 118, tag: ['speaker', 'chatgpt'], trace: ['open questions, product framing', 'explore options; critique', 'alternatives', 'weigh against the research goal', 'ideas, never decisions'] },
+  { id: 'gpt', name: 'ChatGPT', kind: 'rec', x: 370, y: 118, tag: ['speaker', 'chatgpt'], trace: ['research goals, feature candidates, open trade-offs', 'product + technical reasoning; prioritization; task decomposition; design-alternative review', 'plans, critiques, scoped tasks', 'I decide; accepted items become issues and briefs', 'upstream decisions — not captured in git']},
   { id: 'ci', name: 'GitHub + CI', kind: 'proof', x: 10, y: 150, tag: ['repo', 'tests'], trace: ['every push and PR', 'Swift tests, export→Python contract, simulator + device builds, lint', 'pass / fail', 'a red check blocks the merge', 'proof, not opinion'] },
   { id: 'dev', name: 'Xcode + iPhone', kind: 'proof', x: 100, y: 222, tag: ['repo', 'story'], trace: ['a build', 'compile; demo days in the simulator; real days on the phone', 'behaviour on days I lived', '“checked every trip against days I had actually lived”', 'field bugs become issues (#4, #5)'] },
-  { id: 'asc', name: 'App Store review', kind: 'proof', x: 300, y: 222, tag: ['speaker', 'appStore'], trace: ['release kit, privacy manifests', 'external review by Apple', 'approve / reject', 'outside my control', 'pending as of late Oct 2026'] },
+  { id: 'asc', name: 'App Store review', kind: 'proof', x: 300, y: 222, tag: ['speaker', 'appStore'], trace: ['release kit, privacy manifests', 'external review by Apple', 'approve / reject', 'outside my control', `v${APP_STORE.version} submitted ${APP_STORE.submittedOn} · ${APP_STORE.status}`] },
 ]
 
 const LANES: [string, string, string[], TagKind | null][] = [

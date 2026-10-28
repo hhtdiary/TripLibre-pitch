@@ -21,11 +21,11 @@ interface Source {
 
 export const SOURCES = {
   thesis: {
-    text: 'Telework thesis page and CV: Twin Cities Travel Behavior Inventory, 2019 · 2021 · 2023 waves; 34,800 person-days, 19,164 workers. Manuscript under review; figures are simplified redrawings.',
+    text: 'Research page and CV: Twin Cities Travel Behavior Inventory, 2019 · 2021 · 2023 waves; 34,800 person-days, 19,164 workers. The page describes the related journal manuscript (under review).',
     href: LINKS.thesis,
   },
   phillyRole: {
-    text: 'Issue #48 references observations from the Philadelphia household travel survey (smartphone GPS, run by ETC). The speaker’s exact role is to be stated by the speaker; nothing more is claimed here.',
+    text: 'Speaker account: “I participated in Philadelphia’s Household Travel Survey effort” — direct exposure to the challenges of implementing travel surveys. No operational responsibilities are claimed. Issue #48 separately references observations from that survey.',
     href: `${GH}/issues/48`,
   },
   drift48: {
@@ -129,7 +129,7 @@ export const SOURCES = {
     href: `${GH}/pull/52`,
   },
   appStore: {
-    text: 'README: App Store release “in progress”; CHANGELOG Unreleased: release kit, privacy manifests (#41). Submission/review status per speaker, late Oct 2026; not verified as live.',
+    text: 'Speaker account: v2.1.0 submitted to App Store Connect on 2026-10-25; last confirmed status “Waiting for Review”; manual release targeting 2026-11-02. Not labelled live until publicly available. README: release “in progress”.',
     href: `${GH}/issues/41`,
   },
   releases: {
@@ -137,7 +137,13 @@ export const SOURCES = {
     href: `${GH}/releases`,
   },
   chatgpt: {
-    text: 'ChatGPT as an exploration/critique partner is the speaker’s account; the repository shows Codex (ChatGPT’s code reviewer) on PRs, not chat transcripts.',
+    text: 'Speaker account: ChatGPT supported upstream product development — research-to-product translation, feature prioritization, technical trade-offs, task decomposition and design-alternative review. GitHub records repository activity, not these upstream conversations.',
+  },
+  course: {
+    text: 'Speaker account: interest in household travel surveys began in Erick Guerra’s Introduction to Transportation Planning course at the University of Pennsylvania.',
+  },
+  thesisTurn: {
+    text: 'Speaker account: the 2026 Penn MCP thesis finds a nonlinear relationship between daily telework hours and weekday trip-making, turning near 3.3 hours. The research page’s 2.7–2.9 h figure describes the related manuscript (under review).',
   },
   limitedCities: {
     text: 'Roadmap/Vision: open, affordable collection incl. self-hosted options for cities with limited capacity — exploratory, not built.',

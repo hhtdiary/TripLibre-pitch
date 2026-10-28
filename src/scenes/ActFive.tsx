@@ -4,6 +4,7 @@ import { Scene } from '../components/Scene'
 import { Tag } from '../components/Tag'
 import { rv } from '../components/reveal'
 import { LINKS } from '../data/evidence'
+import { APP_STORE, SPEAKER } from '../data/facts'
 import type { SceneProps } from '../types'
 
 const ACT = 'The bill, and when to stop'
@@ -309,14 +310,16 @@ export function S22({ step }: SceneProps) {
         </h2>
         <div className={`s22-bottom m-stack ${rv(step, 1)}`}>
           <div className="s22-me">
-            <p className="serif" style={{ fontSize: 'var(--t-xl)', lineHeight: 1 }}>Zhanchao Yang</p>
-            <p className="small muted">University of Pennsylvania · City Planning + Urban Spatial Analytics</p>
+            <p className="serif" style={{ fontSize: 'var(--t-xl)', lineHeight: 1 }}>{SPEAKER.name}</p>
+            <p className="small muted">{SPEAKER.affiliation} · {SPEAKER.event}</p>
+            <p className="small"><a href={`mailto:${SPEAKER.email}`}>{SPEAKER.email}</a></p>
             <p className="xs muted mono" style={{ marginTop: '0.6em' }}>
               Every claim in this talk carries a provenance tag. Evidence register: evidence.md
             </p>
           </div>
           <Qr url={LINKS.repo} label="code · Apache-2.0" />
           <Qr url={LINKS.site} label="project + docs" />
+          {APP_STORE.url && <Qr url={APP_STORE.url} label="App Store" />}
         </div>
       </div>
     </Scene>

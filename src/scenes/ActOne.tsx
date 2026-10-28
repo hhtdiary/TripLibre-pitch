@@ -2,6 +2,7 @@ import { Scene } from '../components/Scene'
 import { Tag } from '../components/Tag'
 import { rv } from '../components/reveal'
 import type { SceneProps } from '../types'
+import { MEDIA } from '../data/facts'
 
 const ACT = 'Before the app'
 
@@ -21,6 +22,9 @@ export function S01({ step }: SceneProps) {
         <text className={rv(step, 1, 'gone')} x="886" y="374" textAnchor="end">arrived · 08:30</text>
       </svg>
 
+      <p className="s01-origin label">
+        Where it started · Introduction to Transportation Planning, Erick Guerra, Penn <Tag kind="speaker" src="course">speaker</Tag>
+      </p>
       <div className="s01-lines">
         <p className="h1">A trip starts.</p>
         <p className={`h1 ${rv(step, 1)}`}>A trip ends.</p>
@@ -48,19 +52,16 @@ export function S01({ step }: SceneProps) {
 
 /* 02 ─────────────────────────────────────── I became a user of HHTS */
 export function S02({ step }: SceneProps) {
-  // Simplified redrawing of the published curve: 3.8 trips at 0 h,
-  // turn at ~2.8 h, ≈2.9 at 8 h. Shape only; not regression output.
-  const pts = [
-    [0, 3.83], [1, 3.98], [2, 4.08], [2.8, 4.11], [4, 4.0], [5, 3.75], [6, 3.42], [7, 3.12], [8, 2.92],
-  ]
+  // Schematic only: rises, turns near 3.3 h (MCP thesis), then falls.
+  // No y values are drawn, so nothing here reads as regression output.
   const x = (h: number) => 40 + h * 57
-  const y = (t: number) => 250 - (t - 2.6) * 110
-  const d = pts.map(([h, t], i) => `${i ? 'L' : 'M'} ${x(h)} ${y(t)}`).join(' ')
+  const peak = 3.3
+  const d = `M ${x(0)} 170 C ${x(1.4)} 120, ${x(2.4)} 92, ${x(peak)} 90 S ${x(6)} 170, ${x(8)} 228`
   return (
     <Scene n={2} act={ACT}>
       <div className="s02 m-stack">
         <div className="s02-left">
-          <p className="label">Master’s thesis · Penn · 2025–26</p>
+          <p className="label">MCP thesis · University of Pennsylvania · 2026</p>
           <h2 className="h2" style={{ marginTop: '0.4em' }}>
             I became a <span className="it">user</span> of household travel surveys.
           </h2>
@@ -78,29 +79,37 @@ export function S02({ step }: SceneProps) {
             ))}
           </div>
           <p className={`small mono ${rv(step, 1)}`} style={{ marginTop: '1.2em' }}>
-            34,800 person-days · 19,164 workers <Tag kind="repo" src="thesis">thesis page</Tag>
+            34,800 person-days · 19,164 workers <Tag kind="repo" src="thesis">research page</Tag>
           </p>
         </div>
 
-        <figure className="s02-chart" aria-label="Weekday trips rise with partial telework, then fall; turning point near 2.7 to 2.9 hours.">
-          <svg viewBox="0 0 520 300" role="img" aria-hidden="true">
-            {[3, 3.5, 4].map((t) => (
-              <g key={t}>
-                <line x1="40" x2="500" y1={y(t)} y2={y(t)} className="grid" />
-                <text x="34" y={y(t) + 4} textAnchor="end">{t.toFixed(1)}</text>
-              </g>
-            ))}
-            {[0, 2, 4, 6, 8].map((h) => (
-              <text key={h} x={x(h)} y="284" textAnchor="middle">{h}h</text>
-            ))}
-            <rect x={x(2.7)} width={x(2.9) - x(2.7)} y="20" height="240" className="band" />
-            <path d={d} className="curve" />
-            <text x={x(2.8) + 10} y="34" className="ann">turn ≈ 2.7–2.9 h</text>
-          </svg>
-          <figcaption className="xs muted">
-            Predicted weekday trips by daily telework hours — <em>simplified redrawing</em>; manuscript under review.
-          </figcaption>
-        </figure>
+        {MEDIA.thesisFigure ? (
+          <figure className="s02-chart">
+            <img className="s02-fig" src={MEDIA.thesisFigure} alt="Thesis figure: predicted weekday trips by daily telework hours, rising then falling, with a turning point near 3.3 hours." />
+            <figcaption className="xs muted">
+              Source: Z. Yang, MCP thesis, University of Pennsylvania, 2026. Related journal manuscript under review.
+            </figcaption>
+          </figure>
+        ) : (
+          <figure className="s02-chart" aria-label="Schematic: weekday trip-making rises with daily telework hours, turns near 3.3 hours, then falls.">
+            <svg viewBox="0 0 520 300" role="img" aria-hidden="true">
+              <line x1="40" x2="500" y1="260" y2="260" className="grid" />
+              <line x1="40" x2="40" y1="40" y2="260" className="grid" />
+              <text x="34" y="60" textAnchor="end">more</text>
+              <text x="34" y="250" textAnchor="end">fewer</text>
+              {[0, 2, 4, 6, 8].map((h) => (
+                <text key={h} x={x(h)} y="284" textAnchor="middle">{h}h</text>
+              ))}
+              <line x1={x(peak)} x2={x(peak)} y1="40" y2="260" className="turn" />
+              <path d={d} className="curve" />
+              <text x={x(peak) + 10} y="56" className="ann">turn ≈ 3.3 h</text>
+            </svg>
+            <figcaption className="xs muted">
+              Weekday trips by daily telework hours — <em>schematic redraw</em> of the nonlinear result in my 2026 MCP thesis (Penn).
+              Related journal manuscript under review. <Tag kind="illus">schematic, not the figure</Tag>
+            </figcaption>
+          </figure>
+        )}
       </div>
       <p className={`s02-punch note-hand ${rv(step, 2)}`}>
         A powerful instrument. Also a bounded record: each person, one day.
@@ -156,8 +165,10 @@ export function S03({ step }: SceneProps) {
         </section>
       </div>
       <p className={`s03-foot ${rv(step, 2)}`}>
-        <span className="label">Philadelphia household travel survey</span>{' '}
-        <Tag kind="speaker" src="phillyRole">speaker to state role</Tag>
+        <span className="label">I participated in Philadelphia’s household travel survey effort</span>{' '}
+        <Tag kind="speaker" src="phillyRole">speaker account</Tag>
+        <br />
+        <span className="small muted">Direct exposure to the challenges of implementing a travel survey.</span>
         <br />
         <span className="note-hand">From using data → to asking how it is built and sustained.</span>
       </p>

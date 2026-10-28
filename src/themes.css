@@ -222,7 +222,7 @@
 [data-theme='app'] .s02-wave:nth-child(3) { background: var(--sky); }
 [data-theme='app'] .s02-wave .muted { color: var(--ink); }
 [data-theme='app'] .s02-chart .curve { stroke-width: 4; stroke-linecap: round; }
-[data-theme='app'] .s02-chart .band { fill: var(--sun); }
+[data-theme='app'] .s02-chart .turn { stroke: var(--ink); stroke-width: 3; }
 [data-theme='app'] .s03-table { border-collapse: separate; border-spacing: 0; background: var(--card); overflow: hidden; }
 [data-theme='app'] .s03-table th, [data-theme='app'] .s03-table td { padding-left: 0.8em; }
 [data-theme='app'] .s03-table th { background: var(--sun); border-bottom: var(--line) solid var(--ink); }

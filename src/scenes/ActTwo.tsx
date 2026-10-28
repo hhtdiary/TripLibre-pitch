@@ -36,11 +36,12 @@ export function S06({ step }: SceneProps) {
           <br />
           It didn’t decide what was worth building.
         </p>
-        <p className="small muted" style={{ marginTop: '1em', display: 'flex', gap: '0.6em', flexWrap: 'wrap', alignItems: 'center' }}>
-          In the workflow: <Tag kind="repo" src="claudePRs">Claude Code — PRs</Tag>
-          <Tag kind="repo" src="codexCommits">Codex — PR review</Tag>
-          <Tag kind="speaker" src="chatgpt">ChatGPT — exploration</Tag>
-        </p>
+        <ul className="s06-roles small">
+          <li><b>Zhanchao Yang</b> research direction · product ownership · architecture decisions · acceptance and final judgment</li>
+          <li><b>ChatGPT</b> product and technical reasoning · planning · critique · coordination <Tag kind="speaker" src="chatgpt">speaker account</Tag></li>
+          <li><b>Claude Code</b> delegated coding and implementation <Tag kind="repo" src="claudePRs">PRs</Tag></li>
+          <li><b>Codex</b> code review and technical evaluation <Tag kind="repo" src="codexCommits">reviews</Tag></li>
+        </ul>
       </div>
     </Scene>
   )
