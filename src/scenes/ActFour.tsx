@@ -3,6 +3,7 @@ import { Scene } from '../components/Scene'
 import { Tag } from '../components/Tag'
 import { rv } from '../components/reveal'
 import { LINKS } from '../data/evidence'
+import { APP_STORE, MEDIA } from '../data/facts'
 import type { SceneProps } from '../types'
 
 const ACT = 'Judgment'
@@ -294,6 +295,7 @@ export function S17({ step }: SceneProps) {
   const [sel, setSel] = useState(0)
   const [on, setOn] = useState<Record<Layer, boolean>>({ need: true, uncertainty: false, privacy: false })
   const [zoom, setZoom] = useState<{ x: number; y: number } | null>(null)
+  const [video, setVideo] = useState(false)
   useEffect(() => {
     if (step >= 1) setOn({ need: true, uncertainty: true, privacy: true })
   }, [step])
@@ -315,10 +317,15 @@ export function S17({ step }: SceneProps) {
 
           <div className="s17-thumbs" role="tablist" aria-label="Screens">
             {SCREENS.map((x, i) => (
-              <button key={x.file} type="button" role="tab" data-keys="own" aria-selected={sel === i} onClick={() => { setSel(i); setZoom(null) }}>
+              <button key={x.file} type="button" role="tab" data-keys="own" aria-selected={!video && sel === i} onClick={() => { setSel(i); setZoom(null); setVideo(false) }}>
                 {x.name}
               </button>
             ))}
+            {MEDIA.demoVideo && (
+              <button type="button" role="tab" data-keys="own" aria-selected={video} onClick={() => { setVideo(true); setZoom(null) }}>
+                Recording
+              </button>
+            )}
           </div>
 
           <ol className="s17-notes" aria-label={`Annotations for ${s.name}`}>
@@ -340,10 +347,19 @@ export function S17({ step }: SceneProps) {
             </dd>
             <dt className="label">App Store</dt>
             <dd>
-              Submitted, awaiting Apple review — <b>not live</b>. <Tag kind="speaker" src="appStore" />
+              {APP_STORE.url ? (
+                <a href={APP_STORE.url} target="_blank" rel="noreferrer">v{APP_STORE.version} on the App Store</a>
+              ) : (
+                <>
+                  v{APP_STORE.version} submitted {APP_STORE.submittedOn} · <b>{APP_STORE.status}</b> · {APP_STORE.release}. Not live yet.
+                </>
+              )}{' '}
+              <Tag kind="speaker" src="appStore" />
             </dd>
           </dl>
-          <p className="xs muted">Screenshots: release kit, simulator with demo data. Click the phone to zoom.</p>
+          <p className="xs muted">
+            {video ? 'Screen recording supplied by the speaker.' : 'Screenshots: release kit, simulator with demo data — not recorded activity. Click the phone to zoom.'}
+          </p>
         </div>
 
         <figure className="s17-phone">
@@ -356,8 +372,12 @@ export function S17({ step }: SceneProps) {
             }}
           >
             <div className="s17-zoomer" style={zoom ? { transform: 'scale(2)', transformOrigin: `${zoom.x}% ${zoom.y}%` } : undefined}>
-              <img src={`./assets/release/${s.file}.jpg`} alt={s.alt} />
-              {s.pins.map((p, i) =>
+              {video && MEDIA.demoVideo ? (
+                <video src={MEDIA.demoVideo} controls muted playsInline aria-label="Screen recording of TripLibre" />
+              ) : (
+                <img src={`./assets/release/${s.file}.jpg`} alt={s.alt} />
+              )}
+              {!video && s.pins.map((p, i) =>
                 on[p.layer] ? (
                   <span key={i} className={`s17-pin ${p.layer}`} style={{ left: `${p.x}%`, top: `${p.y}%` }} aria-hidden="true">
                     <i>{i + 1}</i>

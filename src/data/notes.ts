@@ -9,17 +9,18 @@ export const NOTES: Record<number, string[]> = {
   ],
   1: [
     'Let me start before there was an app, and before there was any AI in this story.',
-    'Long before TripLibre, I was reading other people’s days. A household travel survey turns a day into rows: a trip starts, a trip ends, here is the mode and here is the purpose. Coursework and survey data showed me that an ordinary Tuesday can become a research observation.',
+    'My interest in household travel surveys began in Erick Guerra’s Introduction to Transportation Planning course at Penn. That grew into my research on telework and travel behavior, other transportation research, and eventually TripLibre.',
+    'A household travel survey turns a day into rows: a trip starts, a trip ends, here is the mode and here is the purpose. An ordinary Tuesday becomes a research observation.',
     '{→ reveal the three lines, then the blank diary row}. The row is blank on purpose. I’m not showing anyone’s real diary.',
   ],
   2: [
-    'My thesis used three waves of the Twin Cities Travel Behavior Inventory: 2019, 2021 and 2023. I measured telework in hours rather than yes or no, and trip-making rises before it falls, turning somewhere around three hours.',
-    'That’s the one finding I’ll show. The thing I want you to notice is the shape of the evidence: every person in that study gives us one weekday. A wave is a photograph. Three waves are three photographs of different people.',
-    'The diary is a powerful instrument. It is also a bounded record.',
+    'My MCP thesis used three waves of the Twin Cities Travel Behavior Inventory: 2019, 2021 and 2023. I measured telework in hours rather than yes or no. The relationship with weekday trip-making is nonlinear: it rises, then turns at around 3.3 hours of telework.',
+    'The curve here is a schematic; the thesis figure replaces it when available. The related journal manuscript is still under review, so I attribute this to the thesis.',
+    'The thing I want you to notice is the shape of the evidence: every person in that study gives us one weekday. A wave is a photograph. The diary is a powerful instrument — and a bounded record.',
   ],
   3: [
-    'Then I got closer to how the Philadelphia household travel survey is collected. [CONFIRM: say plainly what your role was.]',
-    'Seeing it from that side changed my question. When you only analyse the records, the trace is the truth. When you watch collection, you see a GPS trace wander around a building while the person sits still in a chair.',
+    'Then I participated in Philadelphia’s household travel survey effort. That gave me direct exposure to the challenges of implementing a travel survey.',
+    'When you only analyse the records, the trace is the truth. When you are close to collection, you see how hard the observations are to get right — a GPS trace can wander around a building while the person sits still. (The drawing is a redraw, not a real trace.)',
     'This is a research note, not a criticism of the survey. Every collection method makes tradeoffs. I just started seeing them.',
   ],
   4: [
@@ -35,6 +36,7 @@ export const NOTES: Record<number, string[]> = {
   6: [
     'There was one problem with this ambition. I’m a transportation researcher. Not a funded app company.',
     '{→} Only here does AI enter the story. AI changed what I could implement. It didn’t decide what was worth building.',
+    'Who did what: I set the research direction, owned the product, made architecture decisions and gave final acceptance. ChatGPT helped upstream — product and technical reasoning, planning, critique, coordination. Claude Code did delegated implementation. Codex reviewed code. GitHub shows the repository work; the upstream conversations are my account.',
   ],
   7: [
     'This is the translation problem. My research notebook wants valid observations, interpretable trips, privacy, and people who keep using the tool.',
@@ -56,8 +58,8 @@ export const NOTES: Record<number, string[]> = {
   ],
   11: [
     'This is the desk. Three lanes: what I own, what I delegate, and what counts as proof.',
-    '{click a tool node} Each tool takes inputs, does a delegated task, returns an output, and that output gets reviewed and accepted or rejected. A suggestion isn’t accepted until it passes judgment and a reproducible check.',
-    'Two AIs agreeing is not a test.',
+    '{click a tool node} ChatGPT sits upstream: turning research goals into features, prioritizing, decomposing tasks, reviewing design alternatives. Claude Code implements. Codex reviews. CI, the phone and Apple are the checks.',
+    'A suggestion isn’t accepted until it passes judgment and a reproducible check. Two AIs agreeing is not a test.',
   ],
   12: [
     'Who did what. Human: framing, needs, tradeoffs, architecture approval, correctness standards, release. AI: options, drafts, refactors, docs, test ideas, review.',
@@ -83,8 +85,8 @@ export const NOTES: Record<number, string[]> = {
   ],
   17: [
     'Let the product speak. {toggle annotation layers}',
-    'Each screen serves a research need: the day as a diary, one-tap correction, places named once, exports shaped like a survey.',
-    'Status: open source on GitHub, Apache 2.0, with a Zenodo DOI. The App Store build is submitted and waiting for review [CONFIRM status on the day]. It is not published yet.',
+    'Each screen serves a research need: the day as a diary, one-tap correction, places named once, exports shaped like a survey. These are the App Store screenshots — simulator, demo data — not recorded activity.',
+    'Status: open source on GitHub, Apache 2.0, with a Zenodo DOI. Version 2.1.0 was submitted on October 25 and was last confirmed as Waiting for Review, with a manual release targeting November 2. It is not live yet. (Update src/data/facts.ts on the day.)',
   ],
   18: [
     'What AI changed: the friction to prototype, implement and iterate.',
@@ -106,6 +108,6 @@ export const NOTES: Record<number, string[]> = {
   ],
   22: [
     'If building research tools is no longer reserved for software teams, what research infrastructure should we build? And how do we avoid building the wrong thing faster?',
-    'The code, docs and limitations are public. I’d love to hear what you’d build, and what you’d refuse to automate.',
+    'This is a transportation researcher building research infrastructure through AI-native development — not a demo of generated code. The code, docs and limitations are public; I’d love to hear what you’d build, and what you’d refuse to automate.',
   ],
 }

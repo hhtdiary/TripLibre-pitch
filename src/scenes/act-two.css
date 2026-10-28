@@ -63,3 +63,7 @@
   .s09-table tr { display: grid; padding: 10px 0; border-bottom: 1px solid var(--rule); }
   .s09-table td, .s09-table tbody th { border: 0; width: auto !important; padding: 2px 0; }
 }
+
+.s06-roles { list-style: none; margin: calc(var(--u) * 1.2) 0 0; padding: 0; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0.35em calc(var(--u) * 2); }
+.s06-roles b { display: inline-block; min-width: 7.5em; }
+@media (max-width: 760px) { .s06-roles { grid-template-columns: 1fr; } }

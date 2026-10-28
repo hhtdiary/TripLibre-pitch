@@ -65,7 +65,8 @@ Themes only change tokens and texture in [`src/themes.css`](src/themes.css); lay
 | What | Where |
 |---|---|
 | Scene order, titles, build-step counts | [`src/data/scenes.ts`](src/data/scenes.ts) |
-| Speaker notes (proposed script; `[CONFIRM]` marks facts only the speaker can supply) | [`src/data/notes.ts`](src/data/notes.ts) |
+| Speaker notes (proposed script) | [`src/data/notes.ts`](src/data/notes.ts) |
+| Facts that change: App Store status/URL, thesis figure, screen recording, speaker details | [`src/data/facts.ts`](src/data/facts.ts) |
 | Sources behind provenance tags | [`src/data/evidence.ts`](src/data/evidence.ts) and [`evidence.md`](evidence.md) |
 | Scene layouts | `src/scenes/*.tsx`, styles in the matching `.css` |
 | Design tokens (palette, type scale) | [`src/styles.css`](src/styles.css) |
@@ -97,18 +98,21 @@ The field notebook was chosen: it lets every scene use a different visual gramma
 accent hold the deck together, and it reads as a researcher’s working notes rather than a product launch. The survey-form
 idea survives inside it (scene 01’s blank diary row).
 
-## Missing assets and facts that would improve fidelity
+## Facts, and what is still missing
 
-1. **Speaker’s role in the Philadelphia household travel survey** (scene 03). Only issue #48 references the survey; the
-   role is left for the speaker to state.
-2. **App Store status on the day** (scenes 11, 17). Confirm “submitted / in review / live” and, if live, add the App
-   Store link and a QR code.
-3. **Evidence of ChatGPT’s role** (scenes 06, 11). The repo shows Claude Code (PR footers) and Codex (reviews), not ChatGPT
-   conversations. A dated excerpt or the speaker’s own summary would let the tag move from “Speaker account” to evidence.
-4. **Real usage or billing data** (scene 19). Provider exports with period and units would replace “Not tracked”.
-5. **A short screen recording** of correcting a trip or stamping a stop on a real day (scene 17).
-6. **The original GPS-drift screenshots** referenced in issue #48, if shareable and de-identified (scene 03 uses a
-   redraw).
-7. **Thesis figure** from the manuscript once published, to replace the simplified redrawing (scene 02).
-8. **Coursework origin details** (scene 01): which course or dataset first introduced HHTS, for the opening story.
-9. **Talk date, venue and contact line** for the closing scene.
+Resolved by the speaker (2026-10-28) and now on the slides, tagged *Speaker account*: the coursework origin (scene 01),
+participation in Philadelphia's household travel survey (03), ChatGPT's upstream role and the four-way division of
+roles (06, 11), the App Store submission and status (11, 17), the thesis turning point of ≈ 3.3 h (02), and the closing
+contact details (22). See [`evidence.md`](evidence.md).
+
+Still missing; each has a slot in [`src/data/facts.ts`](src/data/facts.ts) or `public/assets/`:
+
+1. **The authentic thesis figure** (scene 02). Put it in `public/assets/` and set `MEDIA.thesisFigure`; the schematic
+   redraw disappears.
+2. **A real screen recording** of correcting a trip or stamping a stop (scene 17). Set `MEDIA.demoVideo`; a
+   “Recording” tab appears. Until then the slide uses the App Store screenshots and says they are demo data.
+3. **App Store status on the day.** Update `APP_STORE.status`; once the app is public, set `APP_STORE.url` to add the
+   link and a QR code on the closing scene. Never write “Live” before then.
+4. **Provider usage or billing exports** (scene 19). Until supplied the measurement panel stays “Not tracked”.
+5. **De-identified GPS-drift screenshots** from the Philadelphia survey (scene 03), if they can be shared; the redraw
+   stays otherwise.
