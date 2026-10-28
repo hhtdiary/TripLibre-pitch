@@ -55,20 +55,9 @@ All sizes are in `--u`, 1% of the 16:9 stage width, so a layout that fits at one
 
 ## Publish to GitHub Pages
 
+[`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) builds every pull request (typecheck + Vite) and,
+on pushes to `main`, deploys `dist/` to GitHub Pages. One-time setup: *Settings › Pages › Source* → *GitHub Actions*.
 The build uses a relative base path, so it works from any repository sub-path.
-
-```bash
-npm run build
-```
-
-Then either push `dist/` to a `gh-pages` branch:
-
-```bash
-npx gh-pages -d dist
-```
-
-or add a GitHub Actions workflow that runs `npm ci && npm run build` and uploads `dist/` with
-`actions/upload-pages-artifact` + `actions/deploy-pages`, and set *Settings › Pages › Source* to *GitHub Actions*.
 
 ## Media and credits
 
