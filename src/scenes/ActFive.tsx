@@ -285,7 +285,7 @@ export function S21({ step }: SceneProps) {
 function Qr({ url, label }: { url: string; label: string }) {
   const [svg, setSvg] = useState('')
   useEffect(() => {
-    QRCode.toString(url, { type: 'svg', margin: 0, color: { dark: '#16150f', light: '#00000000' } }).then(setSvg)
+    QRCode.toString(url, { type: 'svg', margin: 0, color: { dark: '#000000', light: '#ffffff' } }).then(setSvg)
   }, [url])
   return (
     <figure className="s22-qr">

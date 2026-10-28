@@ -8,6 +8,7 @@ import './scenes/s10.css'
 import './scenes/act-three.css'
 import './scenes/act-four.css'
 import './scenes/act-five.css'
+import './themes.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

@@ -123,7 +123,7 @@ export function S10({ step, mode }: SceneProps) {
             <div className="s10-owns">
               <p className="label" style={{ color: 'var(--accent)' }}>Zhanchao owns, at once</p>
               <ul>{OWNS.map((o) => <li key={o}>{o}</li>)}</ul>
-              <p className="xs" style={{ color: '#9c978a' }}>AI tools research, draft, inspect, critique, iterate. Xcode, CI, devices and Apple stay external checks.</p>
+              <p className="xs" style={{ color: 'var(--on-night-3)' }}>AI tools research, draft, inspect, critique, iterate. Xcode, CI, devices and Apple stay external checks.</p>
             </div>
             <div className="s10-me" aria-hidden="true" />
             {ROWS.map((r) => (
