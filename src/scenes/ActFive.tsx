@@ -282,7 +282,6 @@ export function S21({ step }: SceneProps) {
   )
 }
 
-/* 22 ─────────────────────────────────────────────────────────── Closing */
 function Qr({ url, label }: { url: string; label: string }) {
   const [svg, setSvg] = useState('')
   useEffect(() => {
@@ -299,9 +298,37 @@ function Qr({ url, label }: { url: string; label: string }) {
   )
 }
 
-export function S22({ step }: SceneProps) {
+/* 22 ─────────────────────────────────────────────────── Acknowledgments */
+// A personal thank-you, not a claim of collaboration, funding or endorsement.
+const THANKS: [string, string, string][] = [
+  ['Erick Guerra', 'University of Pennsylvania', 'Research mentorship, intellectual guidance, and support'],
+  ['Eugene Brusilovskiy', 'University of Pennsylvania', 'Technical discussions and methodological insights'],
+]
+
+export function S22(_: SceneProps) {
   return (
-    <Scene n={22} act="A question for GIS and planning" aside="thank you is implied">
+    <Scene n={22} act="Acknowledgments">
+      <div className="s22a">
+        <p className="label">Acknowledgments</p>
+        <div className="s22a-names">
+          {THANKS.map(([name, aff, why]) => (
+            <section key={name} className="s22a-person">
+              <h2 className="h2">{name}</h2>
+              <p className="s22a-aff">{aff}</p>
+              <p className="s22a-why">{why}</p>
+            </section>
+          ))}
+        </div>
+        <p className="s22a-line note-hand">From transportation research to building research infrastructure.</p>
+      </div>
+    </Scene>
+  )
+}
+
+/* 23 ─────────────────────────────────────────────────────────── Closing */
+export function S23({ step }: SceneProps) {
+  return (
+    <Scene n={23} act="A question for GIS and planning" aside="thank you is implied">
       <div className="s22">
         <p className="label">for GIS and planning</p>
         <h2 className="h1 s22-q">

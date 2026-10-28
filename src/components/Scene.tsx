@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import { TOTAL } from '../data/meta'
 
 interface Props {
   n: number
@@ -14,7 +15,7 @@ export function Scene({ n, act, aside, className, children }: Props) {
     <div className={`scene ${className ?? ''}`}>
       <div className="runhead" aria-hidden="true">
         <span>
-          <b>{String(n).padStart(2, '0')}</b> / 22 · {act}
+          <b>{String(n).padStart(2, '0')}</b> / {TOTAL} · {act}
         </span>
         <span>{aside ?? 'TripLibre · GIS Day 2026'}</span>
       </div>

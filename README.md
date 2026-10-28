@@ -2,7 +2,7 @@
 
 Web presentation for a GIS Day 2026 talk by Zhanchao Yang (University of Pennsylvania) about
 [TripLibre](https://github.com/zyang91/TripLibre): how a transportation researcher built a travel-diary app with AI
-delegation, and what stayed human. 22 scenes, 20–26 minutes. It is a website, not a slide file: it runs on a projector
+delegation, and what stayed human. A title cover plus 23 scenes (22 talk scenes and an acknowledgments slide), 20–26 minutes. It is a website, not a slide file: it runs on a projector
 in 16:9 and as a scrolling page on a laptop or phone.
 
 ## Run it
