@@ -5,7 +5,7 @@ import { S06, S07, S08, S09 } from '../scenes/ActTwo'
 import { S10 } from '../scenes/S10'
 import { S11, S12, S13 } from '../scenes/ActThree'
 import { S14, S15, S16, S17 } from '../scenes/ActFour'
-import { S18, S19, S20, S21, S22 } from '../scenes/ActFive'
+import { S18, S19, S20, S21, S22, S23 } from '../scenes/ActFive'
 
 const I = 'I · Before the app'
 const II = 'II · Research → software'
@@ -38,5 +38,6 @@ export const SCENES: SceneDef[] = [
   { n: 19, slug: 'cost', title: 'The cost of delegation', act: V, steps: 1, Component: S19 },
   { n: 20, slug: 'models', title: 'Which model for which task?', act: V, steps: 0, Component: S20 },
   { n: 21, slug: 'stop', title: 'The trap of overengineering', act: V, steps: 2, Component: S21 },
-  { n: 22, slug: 'closing', title: 'A question for GIS and planning', act: V, steps: 1, Component: S22 },
+  { n: 22, slug: 'acknowledgments', title: 'Acknowledgments', act: V, steps: 0, Component: S22 },
+  { n: 23, slug: 'closing', title: 'A question for GIS and planning', act: V, steps: 1, Component: S23 },
 ]

@@ -104,3 +104,13 @@
   .s22-qr { grid-template-columns: 96px auto; }
 }
 .s22-me { flex: 1 1 calc(var(--u) * 30); }
+
+/* 22 · acknowledgments */
+.s22a { height: 100%; display: grid; align-content: center; gap: calc(var(--u) * 3); padding-bottom: calc(var(--u) * 2); }
+.s22a-names { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: calc(var(--u) * 5); }
+.s22a-person { border-top: 1.5px solid var(--ink); padding-top: calc(var(--u) * 1.6); display: grid; gap: calc(var(--u) * 0.6); align-content: start; }
+.s22a-person .h2 { font-size: calc(var(--u) * 3.6); white-space: nowrap; }
+.s22a-aff { color: var(--ink-2); font-size: var(--t-body); }
+.s22a-why { font-size: var(--t-lg); line-height: 1.3; max-width: 18em; }
+.s22a-line { font-size: var(--t-lg); }
+@media (max-width: 760px) { .s22a-names { grid-template-columns: 1fr; gap: 28px; } .s22a-person .h2 { white-space: normal; font-size: 30px; } }

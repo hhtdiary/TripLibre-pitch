@@ -414,3 +414,7 @@
 }
 /* A: heavy rounded type runs wider; keep one-line punchlines on one line */
 [data-theme='app'] :is(.s02-punch, .s03-foot .note-hand, .s15-foot .note-hand, .s11-foot .note-hand) { font-size: var(--t-lg); }
+
+/* 22 · acknowledgments per theme */
+[data-theme='app'] .s22a-person { border: var(--line) solid var(--ink); border-radius: var(--radius); box-shadow: var(--drop) var(--drop) 0 var(--ink); background: var(--card); padding: calc(var(--u) * 1.8) calc(var(--u) * 2); }
+[data-theme='app'] .s22a-aff { color: var(--ink); font-weight: 800; }

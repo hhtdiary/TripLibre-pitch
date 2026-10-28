@@ -107,6 +107,10 @@ export const NOTES: Record<number, string[]> = {
     '{→} The feature I chose not to build. Yet.',
   ],
   22: [
+    'Before I close, two thank-yous. Erick Guerra, for research mentorship, intellectual guidance and support — and for the course where this started. Eugene Brusilovskiy, for technical discussions and methodological insights.',
+    'From transportation research to building research infrastructure.',
+  ],
+  23: [
     'If building research tools is no longer reserved for software teams, what research infrastructure should we build? And how do we avoid building the wrong thing faster?',
     'This is a transportation researcher building research infrastructure through AI-native development — not a demo of generated code. The code, docs and limitations are public; I’d love to hear what you’d build, and what you’d refuse to automate.',
   ],
