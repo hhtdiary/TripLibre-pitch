@@ -1,2 +1,5 @@
-design/*
 .DS_Store
+design/*
+dist
+node_modules
+*.tsbuildinfo
