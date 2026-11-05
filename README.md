@@ -105,14 +105,16 @@ participation in Philadelphia's household travel survey (03), ChatGPT's upstream
 roles (06, 11), the App Store submission and status (11, 17), the thesis turning point of ≈ 3.3 h (02), and the closing
 contact details (22). See [`evidence.md`](evidence.md).
 
+Resolved 2026-11-05: v2.1.0 passed App Store review and is public. `APP_STORE.url` in
+[`src/data/facts.ts`](src/data/facts.ts) holds the [listing](https://apps.apple.com/us/app/triplibre-your-trip-diary/id6826907636);
+scene 17 links it and the closing scene (22) shows its QR code.
+
 Still missing; each has a slot in [`src/data/facts.ts`](src/data/facts.ts) or `public/assets/`:
 
 1. **The authentic thesis figure** (scene 02). Put it in `public/assets/` and set `MEDIA.thesisFigure`; the schematic
    redraw disappears.
 2. **A real screen recording** of correcting a trip or stamping a stop (scene 17). Set `MEDIA.demoVideo`; a
    “Recording” tab appears. Until then the slide uses the App Store screenshots and says they are demo data.
-3. **App Store status on the day.** Update `APP_STORE.status`; once the app is public, set `APP_STORE.url` to add the
-   link and a QR code on the closing scene. Never write “Live” before then.
-4. **Provider usage or billing exports** (scene 19). Until supplied the measurement panel stays “Not tracked”.
-5. **De-identified GPS-drift screenshots** from the Philadelphia survey (scene 03), if they can be shared; the redraw
+3. **Provider usage or billing exports** (scene 19). Until supplied the measurement panel stays “Not tracked”.
+4. **De-identified GPS-drift screenshots** from the Philadelphia survey (scene 03), if they can be shared; the redraw
    stays otherwise.

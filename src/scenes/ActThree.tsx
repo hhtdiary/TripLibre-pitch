@@ -25,7 +25,7 @@ const TOOLS: Tool[] = [
   { id: 'gpt', name: 'ChatGPT', kind: 'rec', x: 370, y: 118, tag: ['speaker', 'chatgpt'], trace: ['research goals, feature candidates, open trade-offs', 'product + technical reasoning; prioritization; task decomposition; design-alternative review', 'plans, critiques, scoped tasks', 'I decide; accepted items become issues and briefs', 'upstream decisions — not captured in git']},
   { id: 'ci', name: 'GitHub + CI', kind: 'proof', x: 10, y: 150, tag: ['repo', 'tests'], trace: ['every push and PR', 'Swift tests, export→Python contract, simulator + device builds, lint', 'pass / fail', 'a red check blocks the merge', 'proof, not opinion'] },
   { id: 'dev', name: 'Xcode + iPhone', kind: 'proof', x: 100, y: 222, tag: ['repo', 'story'], trace: ['a build', 'compile; demo days in the simulator; real days on the phone', 'behaviour on days I lived', '“checked every trip against days I had actually lived”', 'field bugs become issues (#4, #5)'] },
-  { id: 'asc', name: 'App Store review', kind: 'proof', x: 300, y: 222, tag: ['speaker', 'appStore'], trace: ['release kit, privacy manifests', 'external review by Apple', 'approve / reject', 'outside my control', `v${APP_STORE.version} submitted ${APP_STORE.submittedOn} · ${APP_STORE.status}`] },
+  { id: 'asc', name: 'App Store review', kind: 'proof', x: 300, y: 222, tag: ['repo', 'appStore'], trace: ['release kit, privacy manifests', 'external review by Apple', 'approve / reject', 'outside my control', `v${APP_STORE.version} submitted ${APP_STORE.submittedOn} · approved · ${APP_STORE.status}`] },
 ]
 
 const LANES: [string, string, string[], TagKind | null][] = [

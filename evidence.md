@@ -53,7 +53,7 @@ Sources were checked on 2026-10-28 against:
 | 11 | PR #81 proposed deleting a chart to pass an audit; closed; chart fixed in #82 | PR #81 (closed, unmerged); PR #82 (merged) | Verified |
 | 11 | CI runs Swift tests, export→Python contract check, simulator + device builds, lint; XCUITest local only | README “Development” | Verified |
 | 11 | “Checked every trip against days I had actually lived” | Story page §06 | Verified |
-| 11 / 17 | v2.1.0 submitted 2026-10-25; last confirmed “Waiting for Review”; manual release targeting 2026-11-02; not live | Speaker. Editable in `src/data/facts.ts` (`APP_STORE`); a store URL there adds the link and QR code | Speaker account |
+| 11 / 17 / 22 | v2.1.0 submitted 2026-10-25; passed App Store review; publicly available (free, iOS 17+) | [App Store listing](https://apps.apple.com/us/app/triplibre-your-trip-diary/id6826907636); TripLibre README marks the App Store release “Available”. Editable in `src/data/facts.ts` (`APP_STORE`) | Verified |
 | 12 | Routing weights (leads / contributes) | Speaker’s practice; not measured | Research rationale |
 | 13 | Issue #32 spec, incl. “precise click-time GPS fix should not be treated as ground truth” | Issue #32 | Verified |
 | 13 | PR #53 files, rules, ≈110 m coarse location, “Generated with Claude Code” | PR #53 body and file list | Verified |
