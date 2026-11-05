@@ -103,7 +103,7 @@ const LOG: Entry[] = [
   { verb: 'retest', text: 'Calibrate on held-out days, frozen before tuning.', detail: 'Whole-day time agreement 0.827 → 0.939 on 5 validation days. Tradeoff accepted and written down: nearby stops now merge more often.', state: 'kept', tag: ['repo', 'pr52', 'PR #52'] },
   { verb: 'reject', text: 'An automatic accessibility “--fix”.', detail: 'It deleted views and kept only modifier chains; the app no longer compiled. Fixes were made by hand instead.', state: 'rejected', tag: ['repo', 'pr84', 'PR #84'] },
   { verb: 'defer', text: 'Experimental logger stays a separate app.', detail: 'Do not alter production sampling or inference for an experiment. Collect paired evidence first.', state: 'deferred', tag: ['future', 'issue48', '#48 open'] },
-  { verb: 'release', text: 'v2.1.0 + App Store release kit.', detail: '14 GitHub releases in four weeks, archived on Zenodo. App Store: submitted, not live.', state: 'kept', tag: ['repo', 'releases', 'releases'] },
+  { verb: 'release', text: 'v2.1.0 on the App Store.', detail: '14 GitHub releases in four weeks, archived on Zenodo. Passed App Store review; now on the App Store.', state: 'kept', tag: ['repo', 'releases', 'releases'] },
 ]
 
 export function S08({ step }: SceneProps) {

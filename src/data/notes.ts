@@ -86,7 +86,7 @@ export const NOTES: Record<number, string[]> = {
   17: [
     'Let the product speak. {toggle annotation layers}',
     'Each screen serves a research need: the day as a diary, one-tap correction, places named once, exports shaped like a survey. These are the App Store screenshots — simulator, demo data — not recorded activity.',
-    'Status: open source on GitHub, Apache 2.0, with a Zenodo DOI. Version 2.1.0 was submitted on October 25 and was last confirmed as Waiting for Review, with a manual release targeting November 2. It is not live yet. (Update src/data/facts.ts on the day.)',
+    'Status: open source on GitHub, Apache 2.0, with a Zenodo DOI. Version 2.1.0 was submitted on October 25, passed Apple’s review, and is now on the App Store — free, iOS 17 or later. The QR code at the end takes you there.',
   ],
   18: [
     'What AI changed: the friction to prototype, implement and iterate.',

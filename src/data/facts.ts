@@ -3,12 +3,12 @@
 export const APP_STORE = {
   version: '2.1.0',
   submittedOn: '2026-10-25',
-  /** Last status confirmed by the speaker. Do not write "Live" until it is publicly available. */
-  status: 'Waiting for Review',
-  lastConfirmed: 'late October 2026',
-  release: 'Manual release, targeting 2026-11-02',
-  /** Public App Store link. Leave null until the app is live; the closing scene then shows its QR code. */
-  url: null as string | null,
+  /** Current public status. */
+  status: 'Available on the App Store',
+  lastConfirmed: 'November 2026',
+  release: 'Released after App Store review (manual release, targeted 2026-11-02)',
+  /** Public App Store link. When set, scenes link to it and the closing scene shows its QR code. */
+  url: 'https://apps.apple.com/us/app/triplibre-your-trip-diary/id6826907636' as string | null,
 }
 
 export const MEDIA = {

@@ -68,6 +68,8 @@
 .s17-thumbs button[aria-selected='true'] { color: var(--ink); text-decoration: underline; text-decoration-color: var(--accent); text-decoration-thickness: 3px; }
 .s17-status { display: grid; grid-template-columns: auto 1fr; gap: 0.4em 1.2em; margin: 0; align-items: baseline; }
 .s17-status dd { margin: 0; }
+.store-badge { display: inline-block; vertical-align: middle; line-height: 0; }
+.store-badge img { height: calc(var(--u) * 3.6); width: auto; display: block; }
 .s17-phone { margin: 0; align-self: center; justify-self: center; height: calc(var(--u) * 48); aspect-ratio: 736 / 1600; position: relative; }
 .s17-screen { position: absolute; inset: 0; border-radius: calc(var(--u) * 2.4); overflow: hidden; border: calc(var(--u) * 0.6) solid var(--night); background: var(--night); cursor: zoom-in; box-shadow: 0 calc(var(--u) * 1) calc(var(--u) * 3) rgb(0 0 0 / 0.18); }
 .s17-screen.zoomed { cursor: zoom-out; }

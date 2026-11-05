@@ -5,11 +5,11 @@ const GH = 'https://github.com/zyang91/TripLibre'
 
 export const LINKS = {
   repo: GH,
-  site: 'https://hhtdiary.org/triplibre/',
-  docs: 'https://hhtdiary.org/triplibre/docs/',
-  story: 'https://hhtdiary.org/triplibre/story/',
+  site: 'https://triplibre.hhtdiary.org/',
+  docs: 'https://triplibre.hhtdiary.org/docs/',
+  story: 'https://triplibre.hhtdiary.org/story/',
   roadmap: 'https://hhtdiary.org/roadmap/',
-  validation: 'https://hhtdiary.org/triplibre/docs/validation.html',
+  validation: 'https://triplibre.hhtdiary.org/docs/validation.html',
   doi: 'https://doi.org/10.5281/zenodo.23307589',
   thesis: 'https://zyang91.github.io/pages/telework.html',
 } as const
@@ -129,8 +129,8 @@ export const SOURCES = {
     href: `${GH}/pull/52`,
   },
   appStore: {
-    text: 'Speaker account: v2.1.0 submitted to App Store Connect on 2026-10-25; last confirmed status “Waiting for Review”; manual release targeting 2026-11-02. Not labelled live until publicly available. README: release “in progress”.',
-    href: `${GH}/issues/41`,
+    text: 'v2.1.0 submitted to App Store Connect on 2026-10-25, passed review and is publicly available as “TripLibre: Your Trip Diary” (free, iOS 17+). README: App Store release “Available”.',
+    href: 'https://apps.apple.com/us/app/triplibre-your-trip-diary/id6826907636',
   },
   releases: {
     text: 'GitHub releases v0.1.0 (2026-09-28) → v2.1.0 (2026-10-25); Zenodo DOI 10.5281/zenodo.23307589.',

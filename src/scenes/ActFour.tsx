@@ -348,13 +348,18 @@ export function S17({ step }: SceneProps) {
             <dt className="label">App Store</dt>
             <dd>
               {APP_STORE.url ? (
-                <a href={APP_STORE.url} target="_blank" rel="noreferrer">v{APP_STORE.version} on the App Store</a>
+                <>
+                  <a className="store-badge" href={APP_STORE.url} target="_blank" rel="noreferrer">
+                    <img src="./assets/app-store-badge.png" width={193} height={65} alt={`Download TripLibre v${APP_STORE.version} on the App Store`} />
+                  </a>{' '}
+                  v{APP_STORE.version} · free, iOS 17+ · submitted {APP_STORE.submittedOn}, passed Apple review
+                </>
               ) : (
                 <>
-                  v{APP_STORE.version} submitted {APP_STORE.submittedOn} · <b>{APP_STORE.status}</b> · {APP_STORE.release}. Not live yet.
+                  v{APP_STORE.version} submitted {APP_STORE.submittedOn} · <b>{APP_STORE.status}</b> · {APP_STORE.release}.
                 </>
               )}{' '}
-              <Tag kind="speaker" src="appStore" />
+              <Tag kind={APP_STORE.url ? "repo" : "speaker"} src="appStore" />
             </dd>
           </dl>
           <p className="xs muted">

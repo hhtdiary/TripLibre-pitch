@@ -282,7 +282,7 @@ export function S21({ step }: SceneProps) {
   )
 }
 
-function Qr({ url, label }: { url: string; label: string }) {
+function Qr({ url, label, badge }: { url: string; label: string; badge?: boolean }) {
   const [svg, setSvg] = useState('')
   useEffect(() => {
     QRCode.toString(url, { type: 'svg', margin: 0, color: { dark: '#000000', light: '#ffffff' } }).then(setSvg)
@@ -292,7 +292,13 @@ function Qr({ url, label }: { url: string; label: string }) {
       <div className="s22-code" role="img" aria-label={`QR code for ${url}`} dangerouslySetInnerHTML={{ __html: svg }} />
       <figcaption>
         <span className="label">{label}</span>
-        <a href={url} target="_blank" rel="noreferrer" className="mono small">{url.replace('https://', '')}</a>
+        {badge ? (
+          <a className="store-badge" href={url} target="_blank" rel="noreferrer">
+            <img src="./assets/app-store-badge.png" width={193} height={65} alt="Download TripLibre on the App Store" />
+          </a>
+        ) : (
+          <a href={url} target="_blank" rel="noreferrer" className="mono small">{url.replace('https://', '')}</a>
+        )}
       </figcaption>
     </figure>
   )
@@ -346,7 +352,7 @@ export function S23({ step }: SceneProps) {
           </div>
           <Qr url={LINKS.repo} label="code · Apache-2.0" />
           <Qr url={LINKS.site} label="project + docs" />
-          {APP_STORE.url && <Qr url={APP_STORE.url} label="App Store" />}
+          {APP_STORE.url && <Qr url={APP_STORE.url} label="App Store" badge />}
         </div>
       </div>
     </Scene>
